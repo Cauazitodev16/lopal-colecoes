@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <script>
+        const alunos = []; 
+        let continuar = true; 
+
+        
+        function Nomes(mensagem) {
+            return prompt(mensagem);
+        }
+
+        
+        for (let i = 0; continuar; i++) {
+            
+            const adicionarNome = Nomes("Você deseja adicionar um nome de aluno? sim ou não");
+
+            
+            if (adicionarNome === "sim") {
+                const nome = Nomes("Digite o nome do aluno:");
+                alunos.push(nome); 
+            } 
+            
+            else if (adicionarNome === "não") {
+                continuar = false; 
+            } 
+            
+            else {
+                alert("digite sim ou não!.");
+            }
+        }
+
+        
+        document.write("Lista dos alunos: " + alunos.join(", "));
+
+        //const nomes = prompt ("Adicione novos nomes a lista de alunos!")
+        //if nomes = 
+        //const alunos = ["Aline", "Arthur", "Bárbara", "Bruna Luise", "Bruna Torres", "Bruna Velôso",];
+
+        //alunos.push("Cauã");
+        //alunos.push("Gabriel");
+        //alunos.push("Henrique");
+     
+        
+       // for(let indice = 0; indice < alunos.length; indice++) {
+            //document.write (alunos[indice] + "<br>");
+       // }
+    </script>
+</body>
+</html>
