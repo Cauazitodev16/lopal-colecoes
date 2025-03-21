@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <h2>Cadastro de Alunos</h2>
+
+    <button onclick="cadastrarAluno()">Cadastrar Aluno</button>
+    <button onclick="removerUltimoAluno()">Remover Último Aluno</button>
+
+    <output id="listaAlunos"></output>
+    <script>
+        let alunos = []; // Array para armazenar as informações dos alunos
+
+function cadastrarAluno() {
+    let nome = prompt("Nome do aluno:");
+    let idade = prompt("Idade do aluno:");
+    let sesi = prompt("Número SESI do aluno:");
+    let possuiPet = confirm("O aluno possui pet?");
+
+    alunos.push({
+        nome: nome,
+        idade: idade,
+        sesi: sesi,
+        possuiPet: possuiPet ? "Sim" : "Não"
+    });
+
+    exibirAlunos();
+}
+
+function removerUltimoAluno() {
+    alunos.pop();
+    exibirAlunos();
+}
+
+function exibirAlunos() {
+    let output = document.getElementById("listaAlunos");
+    output.innerHTML = ""; // Limpar a lista antes de mostrar
+
+    if (alunos.length === 0) {
+        output.innerHTML = "Nenhum aluno cadastrado.";
+    } else {
+        alunos.forEach((aluno, index) => {
+            output.innerHTML += `Aluno ${index + 1}: ${aluno.nome}, ${aluno.idade} anos, SESI ${aluno.sesi}, Pet: ${aluno.possuiPet} <br>`;
+        });
+    }
+}
+    </script>
+</body>
+</html>
