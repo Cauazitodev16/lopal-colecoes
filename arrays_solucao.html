@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const alunos = [];
+let continuar = true;
+
+function Nomes(mensagem) {
+    return prompt(mensagem);
+}
+
+while (continuar) {
+    const acao = Nomes("Você deseja adicionar um nome de aluno? Digite 'sim', 'não' ou 'desfazer'");
+
+    if (acao === "sim") {
+        const nome = Nomes("Digite o nome do aluno:");
+        alunos.push(nome);
+    } 
+    
+    else if (acao === "desfazer") {
+        if (alunos.length > 0) {
+            
+            alunos.pop();
+
+            alert("Último nome da lista foi removido com sucesso!");
+
+        } else {
+            alert("Não há nomes para remover!");
+        }
+    } 
+    
+    else if (acao === "não") {
+        continuar = false;
+    } 
+    
+    else {
+        alert("Digite 'sim', 'não' ou 'desfazer'!");
+    }
+}
+
+document.write("Alunos listados: " + alunos.join(", ") + '<br>');
+    </script>
+</body>
+</html>
